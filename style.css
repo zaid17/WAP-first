@@ -1,0 +1,19 @@
+h1{
+    color: darkblue;
+
+}
+
+p{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    padding-left: 15px;
+    background-color: #ff43;
+}
+
+.shows{
+    background-color: aqua;
+    padding: 10px;
+}
