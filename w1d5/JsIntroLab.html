@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
+
+function max(a,b){
+    if(a>b)
+    return a;
+    else return b;
+}
+
+//Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
+
+function maxOfThree(a,b,c){
+        return max(a,max(b,c));
+}
+
+
+//Write a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
+
+function isVowel(str){
+
+    if(str==='a' || str==='e' || str==='i' || str==='o' || str==='u')
+    return true;
+
+    return false;
+}
+
+//Define a function sum() and a function multiply() that sums and multiplies (respectively) 
+//all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
+
+function sum(arr){
+
+let sum=0;
+
+arr.forEach(element => {
+    sum+=element;
+});
+
+return sum;
+}
+
+function multiply(arr){
+
+    let total = arr[0];
+
+    for(let i=1;i<arr.length;i++){
+        total=total*arr[i];
+    }
+    return total;
+}
+
+
+
+//Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
+
+function reverse(str){
+
+ 
+    let newStr="";
+   
+    for(let i=str.length-1;i>=0;i--){
+        newStr+=str.charAt(i);
+    }
+    return newStr;
+}
+
+
+
+//Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
+
+function findLongestWord(arr){
+
+    let max=arr[0];
+
+    arr.forEach(element=>{
+        if(element.length>max.length)
+        max=element;
+    });
+
+    return max;
+} 
+
+
+//Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i
+
+function filterLongWords(arr,len){
+
+    newArr=[];
+
+    arr.forEach(element=>{
+        if(element.length>len)
+        newArr.push(element);
+        
+    });
+  
+
+    return newArr;
+}
+
+function changeMap(){
+    const a = [1,3,5,3,3]; 
+const b = a.map(function(elem, i, array) {
+  return elem *10;
+});
+
+const c=a.filter(function(elem, i, array){
+    return elem===3;
+});
+
+let product=1;
+
+a.forEach(elem=>{
+    product*=elem;
+});
+
+}
+
+
+/* runs test to see if expected argument is === to value returned by function2test argument */
+function myFunctionTest(expected, found) {
+
+  if(Array.isArray(expected))
+  {
+      if(compareTwoArrays(expected,found))
+      return  "TEST SUCCEEDED";
+     else return "TEST FAILED.  Expected " + expected + " found " + found;
+  }
+  else if  (expected == found) {
+    return "TEST SUCCEEDED";
+  } else {
+    return "TEST FAILED.  Expected " + expected + " found " + found;
+  }
+}
+
+function compareTwoArrays(array1,array2){
+ return  array1.length === array2.length && array1.every((value, index) => value === array2[index])
+}
+
+
+console.log("Expected output of max(20,10) is 20  " + myFunctionTest(20, max(20, 10)));
+console.log("Expected output of maxOfThree(20,10,5) is 20  " + myFunctionTest(20, maxOfThree(20,10,5)));
+console.log("Expected output of isVowel('e') is true  " + myFunctionTest(true, isVowel('e')));
+console.log("Expected output of sum([1,2,3]) is 6 " + myFunctionTest(6, sum([1,2,3])));
+console.log("Expected output of multiply([1,2,3,4]) is 24 " + myFunctionTest(24, multiply([1,2,3,4])));
+console.log("Expected output of reverse('zaid') is diaz " + myFunctionTest('diaz',reverse('zaid')));
+console.log("Expected output of findLongestWord('zaid','helloworld') is helloworld " + myFunctionTest('helloworld',findLongestWord(['zaid','helloworld'])));
+console.log("Expected output of filterLongWords('zaid','helloworld',4) is helloworld " + myFunctionTest(['helloworld'],filterLongWords(['zaid','helloworld'],4)));
+
+let result="Expected output of max(20,10) is 20  " + myFunctionTest(20, max(20, 10))+'<br/>'+
+"Expected output of maxOfThree(20,10,5) is 20  " + myFunctionTest(20, maxOfThree(20,10,5))+'<br/>'+
+"Expected output of isVowel('e') is true  " + myFunctionTest(true, isVowel('e'))+'<br/>'+
+"Expected output of sum([1,2,3]) is 6 " + myFunctionTest(6, sum([1,2,3]))+'<br/>'+
+"Expected output of multiply([1,2,3,4]) is 24 " + myFunctionTest(24, multiply([1,2,3,4]))+'<br/>'+
+"Expected output of reverse('zaid') is diaz " + myFunctionTest('diaz',reverse('zaid'))+'<br/>'+
+"Expected output of findLongestWord('zaid','helloworld') is helloworld " + myFunctionTest('helloworld',findLongestWord(['zaid','helloworld']))+'<br/>'+
+"Expected output of filterLongWords('zaid','helloworld',4) is [helloworld] " + myFunctionTest(['helloworld'],filterLongWords(['zaid','helloworld'],4))+'<br/>'
+   
+console.log(result);
+
+
+
+window.onload=function(){
+   document.getElementById("res").innerHTML=result;
+}
+
+
+</script>
+
+  
+<style>
+  p{
+    padding: 30px;
+    word-spacing: 3px;
+    line-height: 50px;
+    color: green;
+    font-size: 22px;
+  }
+</style>
+</head>
+<body>
+
+<p id="res"></p>
+
+</body>
+</html>
