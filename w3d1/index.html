@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script src="./test.js"></script>
+    <script type="module" src="./account.js"></script>
+    <script type="module" src="./checkingaccount.js"></script>
+    <script type="module" src="savingsaccount.js"></script>
+    <script type="module" src="./bank.js"></script>
+
+    <script>
+        // initialize mocha
+        mocha.setup('bdd');
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+
+    </script>
+  
+
+<script>
+
+
+
+</script>
+<script>
+const account= new Account(1);
+
+account.deposit(50);
+
+describe("deposit", function () {
+    it("add to the balance",
+        function () {
+            assert.equal(account.getBalance(),50);
+        });
+});
+account.withdraw(10);
+
+describe("withdraw", function () {
+    it("widhraw",
+        function () {
+            assert.equal(account.getBalance(),40);
+        });
+});
+
+const savingsaccount = new SavingsAccount(2,2.5);
+savingsaccount.deposit(100);
+savingsaccount.addInterest()
+describe("addInterest", function () {
+    it("addInterest",
+        function () {
+            
+            assert.equal(SavingAccount.getBalance(),(100 * 2.5) / 100+100);
+        });
+});
+
+const checkingaccount = new CheckingAccount(3,200);
+
+checkingaccount.withdraw(100);
+
+describe("checkingaccount withdraw", function () {
+    it("checkingaccount withdraw",
+        function () {
+            
+            assert.equal(checkingaccount.getBalance(),-100);
+        });
+});
+
+
+const bank= new Bank();
+
+bank.addAccount();
+bank.addSavingsAccount(1.5);
+bank.addCheckingAccount(200);
+bank.addAccount();
+
+
+bank.closeAccount(4);
+
+console.log(bank.accountReport());
+
+console.log(bank.endOfMonth());
+</script>
+</head>
+<body>
+    <div id="mocha"></div>
+    <script>
+        mocha.run();
+
+    </script>
+</body>
+</html>
