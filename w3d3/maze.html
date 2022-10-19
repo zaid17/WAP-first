@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<!--
+	CSE 190 M Lab 7 HTML file
+	You should download this file for your lab, but you should not edit its contents.
+	-->
+
+	<head>
+		<title>Maze!</title>
+		
+		<!-- provided files; do not modify -->
+		<link href="maze.css" type="text/css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+		
+		<!-- your code -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="maze.js" type="text/javascript"></script>	
+		<script>
+		
+$(document).ready(function(){
+
+let isStarted=false;
+
+
+  $(document).on('click', '#start', function() { 
+	isStarted=true;
+	$(".boundary").css('background-color', '#eeeeee');
+
+   });
+
+  $("#boundary1").hover(function(){
+	if(isStarted)
+	$(this).css('background-color', 'red');
+  },
+  function(){
+	if(isStarted){
+		
+		alert("you lost");
+		isStarted=false;
+	}
+  });
+  $("#boundary1").hover(function(){
+	if(isStarted){
+		alert("you lost");
+		isStarted=false;
+	}
+  },
+  function(){
+	if(isStarted){
+		alert("you lost");
+		isStarted=false;
+	}
+  });
+  $("#boundary2").hover(function(){
+	if(isStarted)
+	$(this).css('background-color', 'red');
+  },
+  function(){
+	if(isStarted){
+		alert("you lost");
+		isStarted=false;
+	}
+  });
+  $("#boundary3").hover(function(){
+	if(isStarted)
+	$(this).css('background-color', 'red');
+  },
+  function(){
+	if(isStarted){
+		alert("you lost");
+		isStarted=false;
+	}
+  });
+  $("#boundary4").hover(function(){
+	if(isStarted)
+	$(this).css('background-color', 'red');
+  },
+  function(){
+	if(isStarted){
+		alert("you lost");
+		isStarted=false;
+	}
+  });
+  $("#boundary5").hover(function(){
+	if(isStarted)
+	$(this).css('background-color', 'red');
+  },
+  function(){
+	if(isStarted){
+		alert("you lost");
+		isStarted=false;
+	}
+  });
+
+  $("#end").hover(function(){
+	if(isStarted)
+	alert("you won");
+	isStarted=false;
+  },
+  function(){
+  
+  });
+
+});
+		</script>
+	</head>
+
+	<body>
+		<h1>The Amazing Mouse Maze!</h1>
+		<h2 id="status">Click the "S" to begin.</h2>
+		
+		<!-- This part of the page represents the maze -->
+		<div id="maze">
+			<div id="start">S</div>
+			<div class="boundary" id="boundary1"></div>
+			<div class="boundary" id="boundary2"></div>
+			<div class="boundary" id="boundary3"></div>
+			<div class="boundary" id="boundary4"></div>
+			<div class="boundary" id="boundary5"></div>
+			<div id="end">E</div>
+		</div>
+		
+		<p>
+			The object of this game is to guide the mouse cursor through the start area and get to the end area.  Be sure to avoid the walls:
+		</p>
+		
+		<div class="boundary example"></div>
+		
+		<p>
+			Good luck!
+		</p>
+	</body>
+</html>
