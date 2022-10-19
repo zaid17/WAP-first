@@ -5,7 +5,6 @@ import Bank from './bank';
 import CheckingAccount from './checkingaccount';
 import SavingAccount from './savingsaccount';
 import SavingsAccount from './savingsaccount';
-mocha.setup('bdd');
 // chai has a lot of stuff, let's make assert global
 let assert = chai.assert;
 
